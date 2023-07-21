@@ -69,6 +69,7 @@
 			<div class="col-9">
 			
 			<!-- THIS IS THE TABLE FOR THE RESULTS -->
+			<form action="#" method="post">
 					<table class="table table-secondary  table-hover table-bordered border-danger text-danger text-center">
 						<thead>
 							<tr>
@@ -128,6 +129,9 @@
 						</tbody>	
 						
 					</table>
+				
+				</form>
+				
 			
 			</div>
 			
@@ -142,8 +146,8 @@
 			</div>
 			
 			<div class="col-2 my-3">
-			<button class="btn btn-success btn-lg" onclick="
-				button()
+			<button type="submit" class="btn btn-success btn-lg" onclick="
+				buttonCalc()
 			"> GENERATE RESULT </button>
 			</div>
 		
@@ -236,7 +240,7 @@
 	// this is function for mathematics	
 	function maths(){
 			var math = document.getElementById('mat').value
-			if (engl > 100){
+			if (math > 100){
 				document.getElementById('ma').innerHTML = "invalid score"
 			}else if (math >= 70){
 				document.getElementById('ma').innerHTML = "A"
@@ -260,7 +264,7 @@
 	// this is function for chemistry
 	function chemi(){
 			var chem = document.getElementById('che').value
-			if (engl > 100){
+			if (chem > 100){
 				document.getElementById('ch').innerHTML = "invalid score"
 			}else if (chem >= 70){
 				document.getElementById('ch').innerHTML = "A"
@@ -283,7 +287,7 @@
 	// this is function for physics
 	function physi(){
 			var phys = document.getElementById('phy').value
-			if (engl > 100){
+			if (phys > 100){
 				document.getElementById('ph').innerHTML = "invalid score"
 			}else if (phys >= 70){
 				document.getElementById('ph').innerHTML = "A"
@@ -326,10 +330,23 @@
 	
 	//this is function for button to calculate RESULTS
 	
-	function button(){
+	function buttonCalc(){
 
 	var tota = ( (engl)*1 + (math)*1 + (chem)*1 + (phys)*1 + (biol)*1)
 		document.getElementById('tot').innerHTML = tota
 		
 	var aver = ( tota / 5) 
-		docu
+		document.getElementById('ave').innerHTML = aver
+		
+	if ( aver >= 50){
+		document.getElementById('rem').innerHTML = "CONGRATULATIONS! - PROMOTED TO NEXT CLASS"
+	
+	}else{
+		document.getElementById('rem').innerHTML = "UNFORTUNATELY, YOU DIDNT MEET UP! - REPEAT CLASS"
+		document.getElementById('rem').style = "color:red"
+	}
+}
+	
+	</script>
+</body>
+</html>
