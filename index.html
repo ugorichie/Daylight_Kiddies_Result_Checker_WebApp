@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="veiwport"  content="width=device-width, initial-scale-1, shrink-to-fit=no">
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">>
+	<link href="fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+	
+
+	<style type="text/css">
+		div{ 
+			border: 1px solid light-grey;
+			min-height: 50px;
+			background: light-grey ;
+			}
+		table{
+			border:2px solid red;
+		}
+		input{
+			background:light-gray;
+			width: 160px;
+			border: 2px solid gray;
+		}
+		
+		h2{
+			font-weight: bolder;
+		}
+		.btna{
+			background: gray;
+		}
+	</style>
+</head>
+
+
+<body id="bodc" style="font-family: 'Delicious Handrawn', cursive;">
+	<div class="container-fluid py-5">
+			<i class="fa-solid fa-moon mx-3" style="float:right" id= "dark" onclick="
+				document.getElementById('bodc').style ='background:rgb(190,190,190) ;font-family: Delicious Handrawn, cursive; '
+			"></i>  &nbsp; 
+			<i class="fa-regular fa-sun mx-2" style="float:right" id="light" onclick="
+				document.getElementById('bodc').style = 'background:white;font-family: Delicious Handrawn, cursive; '
+			"></i>
+		<!--the icons will float here!!!-->
+			<div class="row">
+				<div class="col-1"> </div>
+				
+				<div class="col-10 text-left">
+				<h2 class="btn btna text-white btn-lg"> WELCOME! </h2>
+			
+				<h1> DAYLIGHT KIDDIES INTERNATIONAL COLLEGE, WEST VIRGINIA. USA </h1>
+					
+					<p> This is the annual result checker for DAYLIGHT KIDDIES INTERNATIONAL SCHOOL <br>
+					Always ensure that Parents and Guardians do the computatution
+					</p>
+			
+				</div>
+				<div class="col-1">
+			
+		
+				</div>
+		</div>
+	
+		<!-- THIS IS THE TABLE  DIV FOR THE RESULTS -->
+		<div class="row my-2 "> 
+		
+			<div class="col-1">
+			</div>
+			
+			<div class="col-9">
+			
+			<!-- THIS IS THE TABLE FOR THE RESULTS -->
+			<form action="#" method="post">
+					<table class="table table-secondary  table-hover table-bordered border-danger text-danger text-center">
+						<thead>
+							<tr>
+								<th> S/N </th>
+								<th> ELEMENTARY SUBJECTS </th>
+								<th> Scores  </th>
+								<th> GRADES </th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>1 </td>
+								<td> ENGLISH </td>
+								<td> <input type="text" id="eng" class="bg-outline-secondary" onchange="
+									english()
+								"> </td>
+								<td> <h4 id="en"></h4> </td>
+							</tr>
+						
+							<tr>
+								<td> 2</td>
+								<td> MATHEMATICS</td>
+								<td> <input type="text" id="mat" onchange="
+									maths()
+								"> </td>
+								<td> <h4 id="ma"></h4></td>
+							</tr>
+							
+							<tr>
+								<td> 3</td>
+								<td> CHEMISTRY</td>
+								<td> <input type="text" id="che" onchange="
+									chemi()
+								"> </td>
+								<td> <h4 id="ch"></h4></td>
+							</tr>
+							
+							<tr>
+								<td> 4</td>
+								<td> PHYSICS</td>
+								<td> <input type="text" id="phy" onchange="
+									physi()
+								"> </td>
+								<td> <h4 id="ph"></h4> </td>
+							</tr>
+							
+							<tr>
+								<td> 5</td>
+								<td> BIOLOGY</td>
+								<td> <input type="text" id="bio"  onchange="
+									biolo()
+								"></td>
+								<td> <h4 id="bi"></h4> </td>
+							</tr>
+							
+						</tbody>	
+						
+					</table>
+				
+				</form>
+				
+			
+			</div>
+			
+			<div class="col-2">
+			</div>
+			
+		</div>
+		
+		<div class="row py-4">
+
+			<div class="col-1">
+			</div>
+			
+			<div class="col-2 my-3">
+			<button type="submit" class="btn btn-success btn-lg" onclick="
+				buttonCalc()
+			"> GENERATE RESULT </button>
+			</div>
+		
+			<div class="col-6">
+			
+					<table class="table table-primary table-bordered border-danger text-center" >
+						<thead>
+							<tr>
+								<th> TOTAL SCORE</th>
+								<th> AVERAGE SCORE  (total score / 5)</th>
+								
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td><h3 id = "tot"> </h3> </td>
+								<td> <h3 id = "ave"></h3></td>
+							
+							</tr>
+						
+						</tbody>	
+						
+					</table>
+			
+			</div>
+		</div>
+		
+		<div class="row">
+		
+		<div class="col-1">
+		</div>
+		
+		
+		<div class="col-8 d-flex">
+			
+		<h2 class="text-muted"> UGONNA'S REMARKS:  </h2>
+		<h3 id = "rem" style="color:green" class="mx-5 py-1"> <u> 'remarks' </u></h3>
+			
+		</div>
+		
+		
+		
+		
+		
+		</div>
+		
+		
+		
+		
+	
+		
+		
+	</div>
+
+	<script type="text/javascript"> 
+	//VAR STORE CENTER
+	
+	
+	// this is function for english
+		function english(){
+			var engl = document.getElementById('eng').value
+			if (engl > 100){
+				document.getElementById('en').innerHTML = "invalid score"
+			}else if (engl >= 70){
+				document.getElementById('en').innerHTML = "A"
+			}else if ((engl <= 69) && (engl >= 60)){
+				document.getElementById('en').innerHTML = "B"
+			}else if ((engl <= 59) && (engl >= 50)){
+				document.getElementById('en').innerHTML = "C"
+			}else if ((engl <= 49) && (engl >= 45)){
+				document.getElementById('en').innerHTML = "D"
+			}else if ((engl <= 44) && (engl >= 40)){
+				document.getElementById('en').innerHTML = "E"
+			}else if (engl == ""){
+				document.getElementById('en').innerHTML = "enter score!"
+			}else{
+				document.getElementById('en').innerHTML = "F"
+			}
+		}
+		
+		
+	// this is function for mathematics	
+	function maths(){
+			var math = document.getElementById('mat').value
+			if (math > 100){
+				document.getElementById('ma').innerHTML = "invalid score"
+			}else if (math >= 70){
+				document.getElementById('ma').innerHTML = "A"
+			}else if ((math <= 69) && (math >= 60)){
+				document.getElementById('ma').innerHTML = "B"
+			}else if ((math <= 59) && (math >= 50)){
+				document.getElementById('ma').innerHTML = "C"
+			}else if ((math <= 49) && (math >= 45)){
+				document.getElementById('ma').innerHTML = "D"
+			}else if ((math <= 44) && (math >= 40)){
+				document.getElementById('ma').innerHTML = "E"
+			}else if (math == ""){
+				document.getElementById('ma').innerHTML = "enter score!"
+			}else{
+				document.getElementById('ma').innerHTML = "F"
+			}
+		}
+		
+		
+		
+	// this is function for chemistry
+	function chemi(){
+			var chem = document.getElementById('che').value
+			if (chem > 100){
+				document.getElementById('ch').innerHTML = "invalid score"
+			}else if (chem >= 70){
+				document.getElementById('ch').innerHTML = "A"
+			}else if ((chem <= 69) && (chem >= 60)){
+				document.getElementById('ch').innerHTML = "B"
+			}else if ((chem <= 59) && (chem >= 50)){
+				document.getElementById('ch').innerHTML = "C"
+			}else if ((chem <= 49) && (chem >= 45)){
+				document.getElementById('ch').innerHTML = "D"
+			}else if ((chem <= 44) && (chem >= 40)){
+				document.getElementById('ch').innerHTML = "E"
+			}else if (chem == ""){
+				document.getElementById('ch').innerHTML = "enter score!"
+			}else{
+				document.getElementById('ch').innerHTML = "F"
+			}
+		}
+		
+		
+	// this is function for physics
+	function physi(){
+			var phys = document.getElementById('phy').value
+			if (phys > 100){
+				document.getElementById('ph').innerHTML = "invalid score"
+			}else if (phys >= 70){
+				document.getElementById('ph').innerHTML = "A"
+			}else if ((phys <= 69) && (phys >= 60)){
+				document.getElementById('ph').innerHTML = "B"
+			}else if ((phys <= 59) && (phys >= 50)){
+				document.getElementById('ph').innerHTML = "C"
+			}else if ((phys <= 49) && (phys >= 45)){
+				document.getElementById('ph').innerHTML = "D"
+			}else if ((phys <= 44) && (phys >= 40)){
+				document.getElementById('ph').innerHTML = "E"
+			}else if (phys == ""){
+				document.getElementById('ph').innerHTML = "enter score!"
+			}else{
+				document.getElementById('ph').innerHTML = "F"
+			}
+		}
+	
+	
+	//this if function for biology
+	function biolo(){
+			var biol = document.getElementById('bio').value
+			if (biol >= 70){
+				document.getElementById('bi').innerHTML = "A"
+			}else if ((biol <= 69) && (biol >= 60)){
+				document.getElementById('bi').innerHTML = "B"
+			}else if ((biol <= 59) && (biol >= 50)){
+				document.getElementById('bi').innerHTML = "C"
+			}else if ((biol <= 49) && (biol >= 45)){
+				document.getElementById('bi').innerHTML = "D"
+			}else if ((biol <= 44) && (biol >= 40)){
+				document.getElementById('bi').innerHTML = "E"
+			}else if (biol == ""){
+				document.getElementById('bi').innerHTML = "enter score!"
+			}else{
+				document.getElementById('bi').innerHTML = "F"
+			}
+		}
+	
+	
+	//this is function for button to calculate RESULTS
+
+	
+	
+	function buttonCalc(){
+
+		var engl = document.getElementById('eng').value
+	var math = document.getElementById('mat').value
+	var chem = document.getElementById('che').value
+	var phys = document.getElementById('phy').value
+	var biol = document.getElementById('bio').value
+	// var aver = ( tota / 5) 
+
+
+	var tota = ( (engl)*1 + (math)*1 + (chem)*1 + (phys)*1 + (biol)*1)
+		document.getElementById('tot').innerHTML = tota
+		
+	var aver = ( tota / 5) 
+		document.getElementById('ave').innerHTML = aver
+		
+	if ( aver >= 50){
+		document.getElementById('rem').innerHTML = "CONGRATULATIONS! - PROMOTED TO NEXT CLASS"
+	
+	}else{
+		document.getElementById('rem').innerHTML = "UNFORTUNATELY, YOU DIDNT MEET UP! - REPEAT CLASS"
+		document.getElementById('rem').style = "color:red"
+	}
+}
+	
+	</script>
+</body>
+</html>
